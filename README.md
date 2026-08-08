@@ -21,12 +21,9 @@ var Car = function() {
 Car.prototype.update = function() {
     this.velocity.add(this.acceleration);
     this.velocity.limit(10);
-
-    // 🚫 Não deixar ir para trás
-    if (this.velocity.x < 0) {
+    if (this.velocity.x< 0) {
         this.velocity.x = 0;
     }
-
     this.position.add(this.velocity);
 };
 
@@ -59,7 +56,7 @@ draw = function() {
     if (keyIsPressed && keyCode === RIGHT) {
         car.acceleration.set(0.05, 0);   // acelera para a direita
     } else if (keyIsPressed && keyCode === LEFT) {
-        car.acceleration.set(-0.05, 0);  // freia
+        car.acceleration.set(-0.05, 0);  // freia (aceleração negativa)
     } else {
         car.acceleration.set(0, 0);      // sem aceleração
     }
